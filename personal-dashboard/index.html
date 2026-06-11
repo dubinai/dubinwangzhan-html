@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杜斌 | 个人可视化作品集 23110941043</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- 全局粒子背景 -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- 顶部导航 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">DuBin</span>
+                <span class="logo-id">23110941043</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">个人档案</a></li>
+                <li class="nav-item"><a href="#skill" class="nav-link">技能雷达</a></li>
+                <li class="nav-item"><a href="#project" class="nav-link">项目中心</a></li>
+                <li class="nav-item"><a href="#timeline" class="nav-link">成长时间轴</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">留言互动</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首屏区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade">杜斌</h1>
+            <p class="hero-sub animate-fade delay-1">学号：23110941043 | 前端可视化 & 程序开发</p>
+            <div class="hero-desc animate-fade delay-2">用代码创造视觉 · 用交互提升体验</div>
+            <a href="#about" class="hero-btn animate-fade delay-3">进入探索 →</a>
+        </div>
+    </section>
+
+    <!-- 个人档案（数字可点击） -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">个人档案</h2>
+                <p class="section-desc">Personal Profile & Resume</p>
+            </div>
+            <div class="about-card reveal">
+                <div class="about-left">
+                    <div class="avatar-box">
+                        <div class="avatar">杜</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="tag-group">
+                        <span class="dynamic-tag">前端开发</span>
+                        <span class="dynamic-tag">数据可视化</span>
+                        <span class="dynamic-tag">Python</span>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <div class="info-top">
+                        <h3 class="name">杜斌 <span class="stu-id">23110941043</span></h3>
+                        <p class="info-slogan">热爱编程，专注交互与视觉开发，持续学习进阶</p>
+                    </div>
+
+                    <div class="info-detail">
+                        <div class="detail-row">
+                            <span class="detail-label">身份定位</span>
+                            <span class="detail-value">在校学生 / 全栈开发爱好者</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">主攻方向</span>
+                            <span class="detail-value">网页交互 · Canvas可视化 · 后端逻辑开发</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">学习理念</span>
+                            <span class="detail-value">知行合一，以项目驱动技术成长</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">擅长能力</span>
+                            <span class="detail-value">原生动效、图表绘制、功能系统开发</span>
+                        </div>
+                    </div>
+
+                    <!-- 技能进度条 -->
+                    <div class="progress-wrap">
+                        <div class="progress-item">
+                            <span class="p-name">前端技术</span>
+                            <div class="p-bar"><div class="p-line" data-width="90"></div></div>
+                            <span class="p-per">90%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="p-name">可视化开发</span>
+                            <div class="p-bar"><div class="p-line" data-width="85"></div></div>
+                            <span class="p-per">85%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="p-name">Python开发</span>
+                            <div class="p-bar"><div class="p-line" data-width="75"></div></div>
+                            <span class="p-per">75%</span>
+                        </div>
+                    </div>
+
+                    <!-- 数据统计卡片（可点击） -->
+                    <div class="stat-group">
+                        <div class="stat-card clickable" onclick="openStatModal('project')">
+                            <div class="stat-num" data-target="20">0</div>
+                            <div class="stat-text">完成项目</div>
+                        </div>
+                        <div class="stat-card clickable" onclick="openStatModal('skill')">
+                            <div class="stat-num" data-target="8">0</div>
+                            <div class="stat-text">技术栈</div>
+                        </div>
+                        <div class="stat-card clickable" onclick="openStatModal('code')">
+                            <div class="stat-num" data-target="1000">0</div>
+                            <div class="stat-text">代码行数+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能可视化 -->
+    <section class="section skill" id="skill">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">技能可视化分析</h2>
+                <p class="section-desc">Interactive Skill Radar</p>
+            </div>
+            <div class="skill-box reveal">
+                <div class="radar-wrap">
+                    <canvas id="radarCanvas"></canvas>
+                    <div class="radar-tip" id="radarTip"></div>
+                </div>
+                <div class="skill-desc">
+                    <h3>技术能力分布</h3>
+                    <p>基于项目实战与日常学习绘制交互式技能雷达图，鼠标悬停查看详情，支持多组数据动态切换。</p>
+                    <ul class="skill-list">
+                        <li>HTML/CSS/JavaScript 前端基础与动效</li>
+                        <li>原生 Canvas 图表、粒子、可视化系统</li>
+                        <li>Python 业务逻辑、数据处理系统开发</li>
+                        <li>网页交互设计、用户体验优化</li>
+                    </ul>
+                    <div class="skill-btn-group">
+                        <button class="skill-btn active" data-type="all">综合能力</button>
+                        <button class="skill-btn" data-type="code">编程能力</button>
+                        <button class="skill-btn" data-type="view">视觉能力</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目中心（卡片可点击） -->
+    <section class="section project" id="project">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">项目中心</h2>
+                <p class="section-desc">Project Works & Cases</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-img" onclick="openProjectDetail(1)">
+                            <div class="project-overlay">
+                                <h4>动态可视化网页</h4>
+                                <p>粒子背景+滚动动效+响应式布局</p>
+                                <button class="project-btn">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal delay-1">
+                    <div class="project-card-inner">
+                        <div class="project-img img-2" onclick="openProjectDetail(2)">
+                            <div class="project-overlay">
+                                <h4>数据雷达图系统</h4>
+                                <p>原生Canvas交互式图表解决方案</p>
+                                <button class="project-btn">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal delay-2">
+                    <div class="project-card-inner">
+                        <div class="project-img img-3" onclick="openProjectDetail(3)">
+                            <div class="project-overlay">
+                                <h4>Python综合作业系统</h4>
+                                <p>后台数据处理+功能交互系统</p>
+                                <button class="project-btn">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成长时间轴 -->
+    <section class="section timeline" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">成长时间轴</h2>
+                <p class="section-desc">My Learning Journey</p>
+            </div>
+            <div class="timeline-wrap reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2023.09 - 入学学习</h4>
+                        <p>开始系统学习计算机基础，接触HTML/CSS/JavaScript，制作静态网页</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2024.03 - 可视化入门</h4>
+                        <p>学习Canvas原生绘图，实现粒子动画、图表绘制等交互效果</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2024.09 - Python项目开发</h4>
+                        <p>使用Python完成数据处理、系统开发类作业，提升后端逻辑能力</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2025.01 - 个人作品集搭建</h4>
+                        <p>整合技术栈，打造动态可视化个人展示网站，实现多模块交互</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 留言互动 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">留言互动</h2>
+                <p class="section-desc">Leave a Message</p>
+            </div>
+            <div class="contact-box reveal">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label>昵称</label>
+                        <input type="text" id="nickname" placeholder="请输入昵称（必填）" required>
+                    </div>
+                    <div class="form-group">
+                        <label>留言内容</label>
+                        <textarea rows="5" id="message" placeholder="写下你的留言（必填）" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">发送留言</button>
+                    <div class="form-tip" id="formTip"></div>
+                </form>
+                <div class="message-list" id="messageList">
+                    <div class="message-item">
+                        <div class="message-name">访客A</div>
+                        <div class="message-text">网站动效做得好棒！</div>
+                    </div>
+                    <div class="message-item">
+                        <div class="message-name">访客B</div>
+                        <div class="message-text">雷达图可视化效果很专业~</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目详情弹窗 -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content project-modal">
+            <span class="close" onclick="closeModal('projectModal')">&times;</span>
+            <div id="projectDetailBox"></div>
+        </div>
+    </div>
+
+    <!-- 数字统计详情弹窗 -->
+    <div class="modal" id="statModal">
+        <div class="modal-content project-modal">
+            <span class="close" onclick="closeModal('statModal')">&times;</span>
+            <div id="statDetailBox"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>杜斌 | 学号：23110941043 &copy; 2026 个人可视化作品集 版权所有</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
